@@ -10,6 +10,7 @@ import { analiseCid } from "./controller/register";
 export const app = fastify()
 
 app.register(routes)
+app.register(cookie)
 
 connectionTasy()
 

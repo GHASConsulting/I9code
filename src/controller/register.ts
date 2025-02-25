@@ -25,7 +25,7 @@ export async function analiseCid(evolution: string) {
         const responseGPTThread = await getGPTResponseThread(evolution);
         console.log("Response from getGPTResponseThread:", responseGPTThread);
   
-        const responseGPT = await getMessages(responseGPTThread);
+        const responseGPT = await getMessages(responseGPTThread, evolution);
         console.log("Response from getChatGPTResponse:", responseGPT);
   
         await knex("messages").insert({
@@ -45,7 +45,7 @@ export async function analiseCid(evolution: string) {
           console.log("teste1")
           await postCreateRun(session.message_id).then(async () => {
             console.log("teste2")
-            const responseGPT = await getMessages(session.message_id);
+            const responseGPT = await getMessages(session.message_id, evolution);
   
             return responseGPT;
           });
