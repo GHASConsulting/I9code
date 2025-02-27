@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /opt/instantclient_21_16:/opt/oracle/instantclient
+    env_file:
+      - .env
+    command: npm run start
