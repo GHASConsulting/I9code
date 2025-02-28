@@ -22,7 +22,7 @@ export async function obterEvolucao(): Promise<any[]> {
       ds_evolucao_sem_formatacao,
       nr_atendimento, 
       dt_evolucao 
-      FROM TASY.evolucao_paciente_i9code_teste
+      FROM TASY.evolucao_paciente_i9code
       `
     );
     return result.rows;
@@ -36,7 +36,7 @@ async function countEvolucao(): Promise<any[]> {
       SELECT
       COUNT(*) as total
       FROM
-      TASY.evolucao_paciente_i9code_teste
+      TASY.evolucao_paciente_i9code
       `
     );
     return result.rows;
